@@ -1,7 +1,7 @@
-# node-js-getting-started
+# node_blog
 
 ```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
+$ git clone https://github.com/kg1990/node_blog.git # or clone your own fork
 $ cd node-js-getting-started
 $ npm install
 $ npm start
