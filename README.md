@@ -2,7 +2,7 @@
 
 ```sh
 $ git clone https://github.com/kg1990/node_blog.git # or clone your own fork
-$ cd node-js-getting-started
+$ cd node-blog
 $ npm install
 $ npm start
 ```
