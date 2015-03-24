@@ -3,36 +3,32 @@
     <div class="box">
         <div class="row row-offcanvas row-offcanvas-left">
             <% include right_bar.html %>
-          
             <!-- main right col -->
             <div class="column col-sm-10 col-xs-11" id="main">
                 <% include top_bar.html %>
-              
                 <div class="padding">
                     <div class="full col-sm-9">
+                      
                         <!-- content -->                      
                         <div class="row">
+                          
                          <!-- main col left --> 
                          <div class="col-sm-12">
-                              <div class="well"> 
-                                   <form class="form-horizontal" role="form" action="/admin/update_post/<%=id%>" method="post">
-                                    <h4>编辑博客</h4>
-                                     <div class="form-group" style="padding:14px;">
-                                      <input class="form-control" placeholder="博客标题" name="title" value="<%=title%>"></input>
+                              <div class="panel panel-default">
+                                <div class="panel-heading"><a href="#" class="pull-right">查看所有</a> <h4>时间线</h4></div>
+                                  <div class="panel-body">
+                                    <div class="list-group">
+                                      <%for(i=0;i<lines.length;i++){%>
+                                        <a href="/admin/edit_timeline/<%=lines[i].id%>" class="list-group-item">
+                                          <%= lines[i].title %>
+                                        </a>
+                                      <%}%>
                                     </div>
-                                    <div class="form-group" style="padding:14px;">
-                                      <textarea class="form-control" placeholder="博客简介" name="subtitle"><%= subtitle%></textarea>
-                                    </div>
-                                    <div class="form-group" style="padding:14px;">
-                                      <textarea class="form-control" placeholder="博客内容" rows="80" name="post_body"><%= body%></textarea>
-                                    </div>
-                                    <button class="btn btn-primary pull-right" type="submit">修改</button>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a class="btn btn-primary pull-right" href="/admin/delete_post/<%=id%>">删除</a>
-                                  </form>
+                                  </div>
                               </div>
                           </div>
                        </div><!--/row-->
+                      
                         <div class="row">
                           <div class="col-sm-6">
                             <a href="#">Twitter</a> <small class="text-muted">|</small> <a href="#">Facebook</a> <small class="text-muted">|</small> <a href="#">Google+</a>
@@ -45,7 +41,7 @@
                           </div>
                           <div class="col-sm-6">
                             <p>
-                            <a href="#" class="pull-right">©Copyright 2013</a>
+                            <a href="#" class="pull-right">©Copyright 2015</a>
                             </p>
                           </div>
                         </div>

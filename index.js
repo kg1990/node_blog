@@ -33,6 +33,7 @@ app.get('/contact', routes.contact);
 app.get('/post/:id', routes.post);
 app.get('/list', routes.list);
 app.get('/test', routes.test);
+app.get('/timeline', routes.timeline);
 
 admin.get('/', filter.authorize, admin_app.index);
 admin.get('/login', admin_app.login);
@@ -43,6 +44,12 @@ admin.post('/create_post',filter.authorize,  admin_app.create_post);
 admin.get('/edit_post/:id',filter.authorize,  admin_app.edit_post);
 admin.post('/update_post/:id',filter.authorize,  admin_app.update_post);
 admin.get('/delete_post/:id',filter.authorize,  admin_app.delete_post);
+admin.get('/timeline',filter.authorize,  admin_app.timeline);
+admin.get('/add_timeline',filter.authorize,  admin_app.add_timeline);
+admin.post('/create_timeline',filter.authorize,  admin_app.create_timeline);
+admin.get('/edit_timeline/:id',filter.authorize,  admin_app.edit_timeline);
+admin.post('/update_timeline/:id',filter.authorize,  admin_app.update_timeline);
+admin.get('/delete_timeline/:id',filter.authorize,  admin_app.delete_timeline);
 admin.get('/init_db',filter.authorize,  admin_app.init_db);
 
 app.use('/admin', admin); // mount the sub app

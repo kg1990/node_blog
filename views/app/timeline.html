@@ -1,0 +1,53 @@
+<% include header.html %>
+    <link rel="stylesheet" type="text/css" href="/css/default.css" />
+    <link rel="stylesheet" type="text/css" href="/css/component.css" />
+    <script src="/js/modernizr.custom.js"></script>
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/home-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>时间线</h1>
+                        <hr class="small">
+                        <span class="subheading">总有一些时刻需要记住</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="container">
+                    <div class="main">
+                        <ul class="cbp_tmtimeline">
+                            <%for(i=0;i<lines.length;i++){%>
+                              <li>
+                                <time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>
+                                <%=strftime('%Y-%m-%d', lines[i].line_at) %></span> 
+                                <span><%=strftime('%H:%M', lines[i].line_at) %></span></time>
+                                <div class="cbp_tmicon cbp_tmicon-earth"></div>
+                                <div class="cbp_tmlabel">
+                                    <h2>
+                                        <%= lines[i].title %>
+                                    </h2>
+                                    <p>
+                                        <%= lines[i].body %>
+                                    </p>
+                                </div>
+                              </li>
+                            <%}%>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+<% include footer.html %>

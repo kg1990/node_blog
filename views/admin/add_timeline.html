@@ -3,11 +3,9 @@
     <div class="box">
         <div class="row row-offcanvas row-offcanvas-left">
             <% include right_bar.html %>
-          
             <!-- main right col -->
             <div class="column col-sm-10 col-xs-11" id="main">
                 <% include top_bar.html %>
-              
                 <div class="padding">
                     <div class="full col-sm-9">
                         <!-- content -->                      
@@ -15,20 +13,18 @@
                          <!-- main col left --> 
                          <div class="col-sm-12">
                               <div class="well"> 
-                                   <form class="form-horizontal" role="form" action="/admin/update_post/<%=id%>" method="post">
-                                    <h4>编辑博客</h4>
+                                   <form class="form-horizontal" role="form" action="/admin/create_timeline" method="post">
+                                    <h4>新加时间线</h4>
                                      <div class="form-group" style="padding:14px;">
-                                      <input class="form-control" placeholder="博客标题" name="title" value="<%=title%>"></input>
+                                      <input class="form-control" placeholder="标题" name="title"></input>
                                     </div>
                                     <div class="form-group" style="padding:14px;">
-                                      <textarea class="form-control" placeholder="博客简介" name="subtitle"><%= subtitle%></textarea>
+                                      <input class="form-control" placeholder="时间" name="line_at"></input>
                                     </div>
                                     <div class="form-group" style="padding:14px;">
-                                      <textarea class="form-control" placeholder="博客内容" rows="80" name="post_body"><%= body%></textarea>
+                                      <textarea class="form-control" placeholder="内容" name="line_body"></textarea>
                                     </div>
-                                    <button class="btn btn-primary pull-right" type="submit">修改</button>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a class="btn btn-primary pull-right" href="/admin/delete_post/<%=id%>">删除</a>
+                                    <button class="btn btn-primary pull-right" type="submit">发布</button>
                                   </form>
                               </div>
                           </div>

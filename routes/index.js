@@ -1,7 +1,7 @@
 var pg = require('pg');
 var strftime = require('strftime');
 var markdown = require( "markdown" ).markdown;
-var database_url = 'set you heroku postgres connect string'
+var database_url = 'postgres://';
 exports.index = function (req, res){
   pg.connect(database_url, function(err, client, done) {
     var sql = "select * from posts order by id desc limit 5;"
@@ -58,6 +58,20 @@ exports.list = function (req, res){
         res.send("Error " + err); 
       }else{ 
         res.render("app/index", {posts: result.rows, strftime: strftime});
+      }
+    });
+  });
+}
+
+exports.timeline = function(req, res){
+  pg.connect(database_url, function(err, client, done) {
+    var sql = "select id, title, body, line_at from lines order by line_at desc";
+    client.query(sql, function(err, result){
+      done();
+      if (err){
+        res.send("Error " + err); 
+      }else{ 
+        res.render("app/timeline", {lines: result.rows, strftime: strftime});
       }
     });
   });
